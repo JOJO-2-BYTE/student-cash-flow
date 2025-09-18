@@ -5,7 +5,6 @@ import { StatsCard } from '@/components/dashboard/StatsCard';
 import { SpendingChart } from '@/components/dashboard/SpendingChart';
 import { TransactionForm } from '@/components/transactions/TransactionForm';
 import { BudgetProgress } from '@/components/budget/BudgetProgress';
-import { GoalCard } from '@/components/goals/GoalCard';
 import { AchievementCard } from '@/components/achievements/AchievementCard';
 import { useFinance } from '@/contexts/FinanceContext';
 import { calculateTotalByType, formatCurrency, calculateNetIncome } from '@/lib/finance-utils';
@@ -17,10 +16,8 @@ export default function Dashboard() {
   const { 
     transactions, 
     budgets, 
-    savingsGoals, 
     achievements,
     addTransaction,
-    updateSavingsGoal,
   } = useFinance();
 
   const totalIncome = calculateTotalByType(transactions, 'income');
@@ -119,20 +116,6 @@ export default function Dashboard() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {budgets.map((budget) => (
             <BudgetProgress key={budget.id} budget={budget} />
-          ))}
-        </div>
-      </div>
-
-      {/* Savings Goals */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Savings Goals</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {savingsGoals.map((goal) => (
-            <GoalCard
-              key={goal.id}
-              goal={goal}
-              onUpdate={updateSavingsGoal}
-            />
           ))}
         </div>
       </div>
