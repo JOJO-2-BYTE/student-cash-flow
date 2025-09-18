@@ -7,9 +7,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { FinanceProvider } from "./contexts/FinanceContext";
 import { Header } from "./components/layout/Header";
 import Dashboard from "./pages/Dashboard";
+import Goals from "./pages/Goals";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
-import { Transactions } from "./pages/Transactions";
 
 const queryClient = new QueryClient();
 
@@ -25,9 +25,9 @@ const App = () => (
               <Header />
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/transactions" element={<Transactions />} />
+                <Route path="/transactions" element={<Dashboard />} />
                 <Route path="/budgets" element={<Dashboard />} />
-                <Route path="/goals" element={<Dashboard />} />
+                <Route path="/goals" element={<Goals />} />
                 <Route path="/profile" element={<Settings />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="*" element={<NotFound />} />
