@@ -9,7 +9,6 @@ import { Header } from "./components/layout/Header";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
-import { Transactions } from "./pages/Transactions";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +24,7 @@ const App = () => (
               <Header />
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/transactions" element={<Transactions />} />
+                <Route path="/transactions" element={<Dashboard />} />
                 <Route path="/budgets" element={<Dashboard />} />
                 <Route path="/goals" element={<Dashboard />} />
                 <Route path="/profile" element={<Settings />} />
